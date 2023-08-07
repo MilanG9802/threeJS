@@ -47,14 +47,12 @@ const CameraControls = ({ icon, squidDoll }) => {
   const objects = [];
   let raycaster;
   const group = useRef(null);
-  const sf = useRef(null);
-  const iic = useRef(null);
-  const chat = useRef(null);
-  const museum = useRef(null);
-  const ttt = useRef(null);
-  const gh = useRef(null);
-  const li = useRef(null);
-  const lc = useRef(null);
+  const weather = useRef(null);
+  const expense = useRef(null);
+  const meetup = useRef(null);
+  const movieBase = useRef(null);
+  const reactMeal = useRef(null);
+  const onlineStore = useRef(null);
   const cc = useRef(null);
   const hr = useRef(null);
   const arrow = useRef(null);
@@ -176,21 +174,43 @@ const CameraControls = ({ icon, squidDoll }) => {
     if (onObject[0]) {
       switch (e.code) {
         case "KeyE":
-          openProfileTab(gh, li, lc, cc, hr, onObject[0]);
+          openProfileTab(cc, hr, onObject[0]);
           break;
         case "KeyV":
-          openProjectTab(sf, iic, chat, museum, ttt, onObject[0]);
+          openProjectTab(
+            weather,
+            expense,
+            movieBase,
+            reactMeal,
+            onlineStore,
+            meetup,
+            onObject[0]
+          );
           break;
         case "KeyG":
-          openProjectGithub(sf, iic, chat, museum, ttt, onObject[0]);
+          openProjectGithub(
+            weather,
+            expense,
+            movieBase,
+            reactMeal,
+            onlineStore,
+            meetup,
+            onObject[0]
+          );
           break;
         case "KeyB":
-          if (onObject[0].object?.uuid === sf.current.uuid) setObj("sf");
-          if (onObject[0].object?.uuid === iic.current.uuid) setObj("iic");
-          if (onObject[0].object?.uuid === chat.current.uuid) setObj("chat");
-          if (onObject[0].object?.uuid === ttt.current.uuid) setObj("ttt");
-          if (onObject[0].object?.uuid === museum.current.uuid)
-            setObj("museum");
+          if (onObject[0].object?.uuid === weather.current.uuid)
+            setObj("weather");
+          if (onObject[0].object?.uuid === expense.current.uuid)
+            setObj("expense");
+          if (onObject[0].object?.uuid === movieBase.current.uuid)
+            setObj("movieBase");
+          if (onObject[0].object?.uuid === onlineStore.current.uuid)
+            setObj("onlineStore");
+          if (onObject[0].object?.uuid === meetup.current.uuid)
+            setObj("meetup");
+          if (onObject[0].object?.uuid === reactMeal.current.uuid)
+            setObj("reactMeal");
           break;
         default:
           setObj(null);
@@ -205,14 +225,13 @@ const CameraControls = ({ icon, squidDoll }) => {
 
   useFrame(({ clock }) => {
     // Adding all the plates ref to an array which will be used to check intersection of raycaster with plates.
-    !objects.includes(sf.current) && objects.push(sf.current);
-    !objects.includes(iic.current) && objects.push(iic.current);
-    !objects.includes(chat.current) && objects.push(chat.current);
-    !objects.includes(museum.current) && objects.push(museum.current);
-    !objects.includes(ttt.current) && objects.push(ttt.current);
-    !objects.includes(gh.current) && objects.push(gh.current);
-    !objects.includes(li.current) && objects.push(li.current);
-    !objects.includes(lc.current) && objects.push(lc.current);
+    !objects.includes(weather.current) && objects.push(weather.current);
+    !objects.includes(expense.current) && objects.push(expense.current);
+    !objects.includes(meetup.current) && objects.push(meetup.current);
+    !objects.includes(movieBase.current) && objects.push(movieBase.current);
+    !objects.includes(reactMeal.current) && objects.push(reactMeal.current);
+    !objects.includes(onlineStore.current) && objects.push(onlineStore.current);
+
     !objects.includes(cc.current) && objects.push(cc.current);
     !objects.includes(hr.current) && objects.push(hr.current);
     !objects.includes(contactRef.current) && objects.push(contactRef.current);
@@ -239,10 +258,7 @@ const CameraControls = ({ icon, squidDoll }) => {
     if (
       onObject.length > 0 &&
       onObject[0].object &&
-      (onObject[0].object.uuid === gh.current.uuid ||
-        onObject[0].object.uuid === li.current.uuid ||
-        onObject[0].object.uuid === lc.current.uuid ||
-        onObject[0].object.uuid === cc.current.uuid ||
+      (onObject[0].object.uuid === cc.current.uuid ||
         onObject[0].object.uuid === hr.current.uuid)
     )
       setVisit(true);
@@ -252,7 +268,7 @@ const CameraControls = ({ icon, squidDoll }) => {
       onObject[0].object &&
       onObject[0].object.uuid === contactRef.current.uuid
     ) {
-      contact && window.open("https://vinay-matta.web.app/contact", "contact");
+      contact && window.open("/contact", "contact");
       setContact(false);
     } else {
       setContact(true);
@@ -335,11 +351,12 @@ const CameraControls = ({ icon, squidDoll }) => {
   return (
     <>
       <PointerLockControls ref={controlsRef} selector="#selector" />
-      <Plate ref={sf} position={[-120 + 10, 0.01, -10]} />
-      <Plate ref={iic} position={[-60 - 10, 0.01, -40]} />
-      <Plate ref={chat} position={[-120 + 10, 0.01, -70]} />
-      <Plate ref={museum} position={[-60 - 10, 0.01, -140]} />
-      <Plate ref={ttt} position={[-120 + 10, 0.01, -140]} />
+      <Plate ref={weather} position={[-120 + 10, 0.01, -10]} />
+      <Plate ref={expense} position={[-60 - 10, 0.01, -40]} />
+      <Plate ref={movieBase} position={[-120 + 10, 0.01, -70]} />
+      <Plate ref={reactMeal} position={[-60 - 10, 0.01, -140]} />
+      <Plate ref={onlineStore} position={[-120 + 10, 0.01, -140]} />
+      <Plate ref={meetup} position={[-80 - 10, 0.01, -160]} />
       <Track position={[100, 0.01, -45]} ref={track} show={startGame} />
       <Game position={[100, 5, -100]} ref={group} squidDoll={squidDoll} />
 
@@ -355,7 +372,7 @@ const CameraControls = ({ icon, squidDoll }) => {
         args={[30, 10]}
         color="#c2ba69"
       />
-      {[hr, cc, lc, li, gh].map((ref, index) => (
+      {[hr, cc].map((ref, index) => (
         <Plate
           key={index}
           ref={ref}
@@ -380,7 +397,7 @@ const CameraControls = ({ icon, squidDoll }) => {
           />
           <sprite
             material={material}
-            position={[-3, 10, z - z_sub * 4]}
+            position={[-3, 10, z - z_sub * 1]}
             scale={[10, 10, 10]}
             ref={arrow1}
           />

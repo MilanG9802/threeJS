@@ -22,7 +22,7 @@ const Routing = () => {
                     width: "50vw",
                   }} // Inner container styles
                   barStyles={{
-                    backgroundColor: "lightgreen",
+                    backgroundColor: "white",
                   }} // Loading-bar styles
                   dataInterpolation={(p) => `Loading ${Math.round(p)}%`}
                   initialState={(active) => active}

@@ -3,6 +3,7 @@ import React from "react";
 const Board = ({
   x,
   z,
+  y = 0,
   text,
   rotation = [0, 0, 0],
   font,
@@ -16,7 +17,7 @@ const Board = ({
     height: 1,
   };
   return (
-    <group position={[x, 0, z]} rotation={rotation}>
+    <group position={[x, y, z]} rotation={rotation}>
       {/* Text */}
       <mesh
         rotation={[0, Math.PI / 2, 0]}

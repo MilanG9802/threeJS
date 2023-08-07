@@ -19,18 +19,17 @@ const Contact = () => {
     setDisabled(true);
     axios({
       method: "POST",
-      url: "https://vinay-matta-server.herokuapp.com/send",
-      // url: "http://localhost:3001/send",
+      url: "https://conatct-575b9-default-rtdb.firebaseio.com/contact.json",
       headers: { "Content-Type": "application/json" },
       data: { name: name, email: email, subject: subject, message: message },
     }).then((response) => {
       console.log(response);
-      if (response.data.flag === "success") {
+      if (response.status === 200) {
         alert("Message Sent.");
         resetForm();
         setDisabled(false);
-      } else if (response.data.flag === "fail") {
-        alert(response.data.data);
+      } else if (response.statusText !== "OK") {
+        alert(response.data.name);
         setDisabled(false);
       }
     });

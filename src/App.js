@@ -22,7 +22,7 @@ const App = () => {
                 marginBottom: "50px",
               }}
             >
-              Hello, I'm <span>Vinay Matta.</span>
+              Hello, I'm <span>Milan Golakiya.</span>
             </h1>
             <h2
               style={{

@@ -22,8 +22,8 @@ const Skills = ({ icons, font }) => {
       <Skill icon={icons[3]} position={[-110, 5, 60]} scale={[7, 7, 1]} />
       {/*SQl*/}
       <Skill icon={icons[4]} position={[-100, 5, 100]} scale={[10, 7, 1]} />
-      {/*CPP*/}
-      <Skill icon={icons[5]} position={[-70, 5, 60]} scale={[6, 6, 1]} />
+      {/* CPP
+      <Skill icon={icons[5]} position={[-70, 5, 60]} scale={[6, 6, 1]} /> */}
       {/*HTML*/}
       <Skill icon={icons[6]} position={[-80, 5, 80]} scale={[7, 7, 1]} />
       {/*CSS*/}
@@ -34,8 +34,8 @@ const Skills = ({ icons, font }) => {
       <Skill icon={icons[9]} position={[-70, 5, 100]} scale={[12, 7, 1]} />
       {/*Next*/}
       <Skill icon={icons[10]} position={[-100, 5, 40]} scale={[10, 7, 1]} />
-      {/*Flutter*/}
-      <Skill icon={icons[11]} position={[-90, 5, 60]} scale={[7, 7, 1]} />
+      {/* Flutter
+      <Skill icon={icons[11]} position={[-90, 5, 60]} scale={[7, 7, 1]} /> */}
     </group>
   );
 };

@@ -1,6 +1,7 @@
 import { Html } from "@react-three/drei";
 import React from "react";
 import {
+  MeetUp,
   chatSprite,
   iicSprite,
   museumSprite,
@@ -51,11 +52,12 @@ const SpriteComponent = ({ controlsRef, obj, type }) => {
       transform
     >
       {obj ? (
-        (obj === "sf" && sfSprite) ||
-        (obj === "iic" && iicSprite) ||
-        (obj === "chat" && chatSprite) ||
-        (obj === "museum" && museumSprite) ||
-        (obj === "ttt" && tttSprite)
+        (obj === "weather" && sfSprite) ||
+        (obj === "expense" && iicSprite) ||
+        (obj === "movieBase" && chatSprite) ||
+        (obj === "reactMeal" && museumSprite) ||
+        (obj === "meetup" && MeetUp) ||
+        (obj === "onlineStore" && tttSprite)
       ) : (
         <>
           <span>Press B for brief introduction</span>

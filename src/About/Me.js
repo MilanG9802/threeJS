@@ -28,7 +28,18 @@ const Me = ({ font }) => {
       >
         <textBufferGeometry
           attach="geometry"
-          args={["Welcome!", textOptions]}
+          args={["Welcome !", textOptions]}
+        />
+        <meshBasicMaterial attach="material" color="#fafafa" metalness={1} />
+      </mesh>
+      <mesh
+        position={[130, 2, 80]}
+        rotation={[-Math.PI / 2, 0, -Math.PI]}
+        ref={secondRef}
+      >
+        <textBufferGeometry
+          attach="geometry"
+          args={["My Friend", textOptions]}
         />
         <meshBasicMaterial attach="material" color="#fafafa" metalness={1} />
       </mesh>
