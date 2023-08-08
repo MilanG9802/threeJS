@@ -53,6 +53,7 @@ const App = () => {
             <Bounce bottom>
               <p>Sorry!</p>
               <p>This website does not support mobile devices yet.</p>
+              {window.open("https://mgpotfolio.vercel.app/", "blank")}
             </Bounce>
           )}
         </div>

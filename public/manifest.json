@@ -1,21 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Milan Golakiya Portfolio",
+  "name": "Welcome to the portfolio of Milan Golkaiya. A full-stack developer with expertise in Next.js, React, Gatsby, Three.js, and more. Specializing in UI/UX design, CRM development, and Node.js technologies.",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "logo-500.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo-500.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "500x500"
     }
   ],
   "start_url": ".",
